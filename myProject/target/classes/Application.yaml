@@ -1,0 +1,69 @@
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: myProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root1234
+    url: jdbc:mysql://localhost:3306/myProject
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+message:
+  welcome: Hi this is Surajit
+server:
+  port: 8082
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  application:
+    name: myProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root1234
+    url: jdbc:mysql://localhost:3306/myProjectQa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+message:
+  welcome: Hi this is Surajit
+server:
+  port: 8082
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: myProject
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root1234
+    url: jdbc:mysql://localhost:3306/myProjectProd
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+message:
+  welcome: Hi this is Surajit
+server:
+  port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
